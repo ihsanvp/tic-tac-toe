@@ -1,3 +1,7 @@
+mod model;
+
 fn main() {
-    println!("Hello, world!");
+    let board = model::board::Board::new();
+
+    board.display();
 }
