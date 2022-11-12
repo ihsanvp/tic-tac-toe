@@ -1,4 +1,4 @@
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 enum CellValue {
     Empty,
     Cross,
@@ -47,6 +47,24 @@ impl Board {
 
         display_board(&board);
     }
+
+    pub fn get_remaining_postions(&self) -> Vec<u32> {
+        let mut remaining: Vec<u32> = vec![];
+
+        for i in 0..self.cells.len() {
+            let row = &self.cells[i];
+
+            for j in 0..row.len() {
+                let cell = &row[j];
+
+                if cell.is_empty() {
+                    remaining.push(((i * 3) + j + 1) as u32);
+                }
+            }
+        }
+
+        remaining
+    }
 }
 
 impl BoardCell {
@@ -72,6 +90,10 @@ impl BoardCell {
             CellValue::Cross => 'X',
             CellValue::Circle => 'O',
         };
+    }
+
+    fn is_empty(&self) -> bool {
+        return self.value == CellValue::Empty;
     }
 }
 

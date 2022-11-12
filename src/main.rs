@@ -10,4 +10,6 @@ fn main() {
 
     model::board::display_board(&option_board);
     board.display();
+
+    println!("{:?}", board.get_remaining_postions())
 }
