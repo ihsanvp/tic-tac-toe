@@ -75,7 +75,7 @@ impl BoardCell {
     }
 }
 
-fn display_board(board: &Vec<Vec<char>>) {
+pub fn display_board(board: &Vec<Vec<char>>) {
     for i in 0..board.len() {
         let row = &board[i];
 
@@ -93,4 +93,6 @@ fn display_board(board: &Vec<Vec<char>>) {
             println!("\n-----");
         }
     }
+    println!("");
+    println!("");
 }
